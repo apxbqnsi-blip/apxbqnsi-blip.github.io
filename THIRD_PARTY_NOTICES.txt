@@ -1,0 +1,7 @@
+Aniimax (original): Copyright 2026-Present aebii — MIT; see LICENSE.
+Original project: https://github.com/ae-bii/aniimax
+HiGHS WebAssembly: MIT; see vendor/highs/LICENSE.
+MathJax 3.2.2: Apache-2.0; see vendor/mathjax/LICENSE.
+MathJax is bundled locally from its integrity-verified npm distribution.
+This is an unofficial fan tool. Aniimo game names and reference values belong to their respective owners.
+No raw game archive, executable game code, account or save file is distributed.
