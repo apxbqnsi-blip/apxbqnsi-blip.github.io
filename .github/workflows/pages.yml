@@ -1,4 +1,4 @@
-name: Publish Aniimax r13
+name: Publish Aniimax Web
 on:
   push:
     branches: [main]

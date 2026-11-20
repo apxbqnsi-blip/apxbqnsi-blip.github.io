@@ -1,10 +1,14 @@
-# Aniimax r13 · Web edition
+# Aniimax r16-1 · Web edition
 
 [웹페이지 주소](https://korgenta.github.io/annimaxtokr.github.io/)
 
 애니모 캠핑 생산 최적화 도구입니다. 지원 RV 레벨·시설 수·모듈 레벨·레시피는 공개 데이터 파일에서 읽습니다.
 방문자용 데이터 편집 기능과 로컬 카탈로그 덮어쓰기는 포함하지 않습니다.
 단일/병행 생산, 시설별 애니모 설정, 이벤트 작물, 레시피 최대 생산 비교 및 한국어/영어 표시를 지원합니다.
+
+r16-1에서는 우선순위 목록의 레벨업 항목을 제거하고 별도의 레벨업 계산 전략을 유지합니다.
+이전 저장값·공유 링크의 레벨업 우선순위만 정리하며, 나머지 설정은 이어서 사용합니다.
+처음 방문하면 상세 설정·능력 3레벨·접힌 이벤트 작물 항목으로 시작합니다.
 
 All calculations run in the browser using WebAssembly. No backend or analytics is used.
 MathJax and HiGHS are bundled locally. The data editor and local catalog overrides are excluded.
@@ -32,7 +36,7 @@ python -m unittest discover -s tests -p test_build.py
 
 ## 배포 구조
 
-`data/game-data.json`이 유일한 배포 데이터 원본입니다. `site.zip`에는 검증된 r13 실행 파일과 자체 포함 라이브러리만 들어 있으며, 데이터 파일과 편집기는 없습니다. `site.sha256`은 실행 파일 ZIP의 무결성을 확인합니다. 실행 코드를 변경할 때만 ZIP과 해시를 함께 갱신합니다.
+`data/game-data.json`이 유일한 배포 데이터 원본입니다. `site.zip`에는 검증된 r16-1 실행 파일과 자체 포함 라이브러리만 들어 있으며, 데이터 파일과 편집기는 없습니다. `site.sha256`은 실행 파일 ZIP의 무결성을 확인합니다. 실행 코드를 변경할 때만 ZIP과 해시를 함께 갱신합니다.
 
 GitHub Pages의 Source는 **GitHub Actions**로 유지합니다. 워크플로는 `scripts/build_site.py`로 `_site`를 만들고 테스트를 통과한 `_site`만 게시합니다. 빌드 스크립트·테스트·원본 ZIP은 사이트에 포함되지 않습니다.
 

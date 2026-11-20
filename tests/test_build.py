@@ -4,6 +4,7 @@ import importlib.util
 import json
 import tempfile
 import unittest
+from html.parser import HTMLParser
 
 ROOT = Path(__file__).resolve().parents[1]
 spec = importlib.util.spec_from_file_location("build_site", ROOT / "scripts/build_site.py")
@@ -58,6 +59,32 @@ class PublicBuildTests(unittest.TestCase):
         data["translations"]["Private test"] = "C:" + chr(92) + "Users" + chr(92) + "Example"
         with self.assertRaisesRegex(ValueError, "private path"):
             self.prepare(data)
+
+    def test_public_runtime_has_no_private_files_or_remote_page_resources(self):
+        files, _ = self.prepare(self.data)
+        forbidden = {"editor.html", "editor.js", "editor.css", "site.zip", "site.sha256"}
+        self.assertFalse(forbidden & files.keys())
+        self.assertEqual([n for n in files if n.startswith("data/")], ["data/game-data.json"])
+        self.assertFalse(any(n.endswith((".exe", ".csv", ".log", ".map")) for n in files))
+        for name, content in files.items():
+            self.assertIsNone(builder.PRIVATE_MARKERS.search(content), name)
+
+        class Resources(HTMLParser):
+            def handle_starttag(parser, tag, attributes):
+                attrs = dict(attributes)
+                self.assertFalse(any(k.startswith("on") for k in attrs), (tag, attrs))
+                if tag == "script":
+                    self.assertIn("src", attrs, "Inline scripts are not permitted")
+                for attribute in (["src"] if tag in {"script", "img", "iframe"} else ["href"] if tag == "link" else []):
+                    value = attrs.get(attribute, "")
+                    self.assertFalse(":" in value or value.startswith("//"), value)
+
+        html = files["index.html"].decode("utf-8")
+        Resources().feed(html)
+        self.assertIn("connect-src 'self'", html)
+        self.assertNotIn("'unsafe-eval'", html)
+        self.assertIn('name="referrer" content="no-referrer"', html)
+        self.assertIn('href="privacy.html"', html)
 
 
 if __name__ == "__main__":

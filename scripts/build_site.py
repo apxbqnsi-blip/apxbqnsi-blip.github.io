@@ -86,7 +86,7 @@ def prepare_site(catalog, archive=ROOT / "site.zip", checksum=ROOT / "site.sha25
     levels = [row["level"] for row in data["rv_levels"]]
     regular = sum(not recipe.get("season") for recipe in data["recipes"])
     seasonal = len(data["recipes"]) - regular
-    summary = (f"r13 web · RV {min(levels)}–{max(levels)} · {regular} regular recipes + "
+    summary = (f"r16-1 web · RV {min(levels)}–{max(levels)} · {regular} regular recipes + "
                f"{seasonal} season recipes. Published game data; no data editor.")
     html = files["index.html"].decode("utf-8")
     html, replacements = re.subn(r'<p class="disclaimer">.*?</p>',

@@ -8377,7 +8377,8 @@
       "grower_steps": [],
       "game_name_en": "Flowers in a Bottle",
       "game_name_ko": "병 속 꽃",
-      "game_text_id": 1455833800
+      "game_text_id": 1455833800,
+      "min_rv_level": 18
     },
     {
       "name": "advanced_gemstone_dust",
@@ -8934,7 +8935,8 @@
       "grower_steps": [],
       "game_name_en": "Rose Shortbread",
       "game_name_ko": "장미 구움과자",
-      "game_text_id": 1270938765
+      "game_text_id": 1270938765,
+      "min_rv_level": 7
     },
     {
       "name": "lavender_cookies",
@@ -10067,7 +10069,8 @@
       "grower_steps": [],
       "game_name_en": "Ginseng Porridge",
       "game_name_ko": "인삼 영양죽",
-      "game_text_id": 1340427273
+      "game_text_id": 1340427273,
+      "min_rv_level": 12
     },
     {
       "name": "maple_sugar_chunk",
@@ -10797,7 +10800,8 @@
       "grower_steps": [],
       "game_name_en": "Lotion",
       "game_name_ko": "보습 로션",
-      "game_text_id": 2133998910
+      "game_text_id": 2133998910,
+      "min_rv_level": 19
     },
     {
       "name": "premium_mixed_perfume",
@@ -11202,7 +11206,8 @@
       "grower_steps": [],
       "game_name_en": "Potato Kvass",
       "game_name_ko": "감자 크바스",
-      "game_text_id": 1961308571
+      "game_text_id": 1961308571,
+      "min_rv_level": 9
     },
     {
       "name": "grape_juice",
@@ -12219,7 +12224,8 @@
       "grower_steps": [],
       "game_name_en": "Strawberry Candy",
       "game_name_ko": "딸기 사탕",
-      "game_text_id": 1358190088
+      "game_text_id": 1358190088,
+      "min_rv_level": 16
     },
     {
       "name": "premium_jello",
@@ -12442,7 +12448,8 @@
       "grower_steps": [],
       "game_name_en": "Orange Flower Rice Drink",
       "game_name_ko": "오렌지꽃 쌀 음료",
-      "game_text_id": 1220628801
+      "game_text_id": 1220628801,
+      "min_rv_level": 22
     },
     {
       "name": "salted_cherry_blossom",
@@ -14015,7 +14022,8 @@
         }
       ],
       "environment": "Adequate",
-      "description": "충분한 빛 필요. 씨앗 1개는 기묘한 젤리빈 4개로 구매합니다."
+      "description": "충분한 빛 필요. 씨앗 1개는 기묘한 젤리빈 4개로 구매합니다.",
+      "recipe": "memory_lanternfruit"
     },
     {
       "name": "마력 호박",
@@ -14050,7 +14058,8 @@
         }
       ],
       "environment": "Adequate",
-      "description": "충분한 빛 필요. 씨앗 1개는 기묘한 젤리빈 4개로 구매합니다."
+      "description": "충분한 빛 필요. 씨앗 1개는 기묘한 젤리빈 4개로 구매합니다.",
+      "recipe": "magic_pumpkin"
     }
   ]
 }
