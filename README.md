@@ -1,4 +1,4 @@
-# Aniimax r17 · Web edition
+# Aniimax r17-1 · Web edition
 
 [웹페이지 주소](https://korgenta.github.io/annimaxtokr.github.io/)
 
@@ -13,6 +13,10 @@ r16-1에서는 우선순위 목록의 레벨업 항목을 제거하고 별도의
 r17에서는 시설별 생산 계획의 그림을 행·열에 맞춰 정렬하고, 캠프 배치도를 기본으로 접어 둡니다.
 접힌 동안 운반 애니메이션은 멈추며, ‘도면에서 찾기’를 누르면 펼쳐 해당 시설을 표시합니다.
 시설·작물 수와 생산량은 유지하며, 정렬로 전부 배치할 수 없는 조합에는 기존의 유효한 배치를 사용합니다.
+
+r17-1에서는 2×2 밭과 5×5 스타폴 해먹처럼 크기가 다른 시설이 함께 있을 때 정렬 탐색 범위가 부족하던 문제를 수정했습니다.
+RV 20의 고속 딸기 27칸·스타폴 해먹 2개·냉방기 1개를 유지하는 배치를 확인했습니다.
+새 배치를 보려면 다시 계산하세요. 저장 설정 초기화는 필요하지 않습니다.
 
 All calculations run in the browser using WebAssembly. No backend or analytics is used.
 MathJax and HiGHS are bundled locally. The data editor and local catalog overrides are excluded.
@@ -40,7 +44,7 @@ python -m unittest discover -s tests -p test_build.py
 
 ## 배포 구조
 
-`data/game-data.json`이 유일한 배포 데이터 원본입니다. `site.zip`에는 검증된 r17 실행 파일과 자체 포함 라이브러리만 들어 있으며, 데이터 파일과 편집기는 없습니다. `site.sha256`은 실행 파일 ZIP의 무결성을 확인합니다. 실행 코드를 변경할 때만 ZIP과 해시를 함께 갱신합니다.
+`data/game-data.json`이 유일한 배포 데이터 원본입니다. `site.zip`에는 검증된 r17-1 실행 파일과 자체 포함 라이브러리만 들어 있으며, 데이터 파일과 편집기는 없습니다. `site.sha256`은 실행 파일 ZIP의 무결성을 확인합니다. 실행 코드를 변경할 때만 ZIP과 해시를 함께 갱신합니다.
 
 GitHub Pages의 Source는 **GitHub Actions**로 유지합니다. 워크플로는 `scripts/build_site.py`로 `_site`를 만들고 테스트를 통과한 `_site`만 게시합니다. 빌드 스크립트·테스트·원본 ZIP은 사이트에 포함되지 않습니다.
 
