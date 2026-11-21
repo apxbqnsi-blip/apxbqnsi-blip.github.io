@@ -1,4 +1,4 @@
-# Aniimax r17-1 · Web edition
+# Aniimax r17-3 · Web edition
 
 [웹페이지 주소](https://korgenta.github.io/annimaxtokr.github.io/)
 
@@ -17,6 +17,10 @@ r17에서는 시설별 생산 계획의 그림을 행·열에 맞춰 정렬하�
 r17-1에서는 2×2 밭과 5×5 스타폴 해먹처럼 크기가 다른 시설이 함께 있을 때 정렬 탐색 범위가 부족하던 문제를 수정했습니다.
 RV 20의 고속 딸기 27칸·스타폴 해먹 2개·냉방기 1개를 유지하는 배치를 확인했습니다.
 새 배치를 보려면 다시 계산하세요. 저장 설정 초기화는 필요하지 않습니다.
+
+r17-3의 특정 레시피 최대 생산 계산은 홈코인·직접 판매 순수익 우선순위만 자동으로 제외하고, 나머지 우선순위는 순서대로 유지합니다.
+일반 계산·비교 기준·화면의 선택과 저장 설정은 원래 우선순위를 유지합니다. 최대 생산 결과에는 자동 제외 안내와 수익 증감률이 표시됩니다.
+병행 생산에서도 광산 한 개는 레시피 한 개를 유지합니다. 여러 광산은 서로 다른 레시피를 생산할 수 있습니다.
 
 All calculations run in the browser using WebAssembly. No backend or analytics is used.
 MathJax and HiGHS are bundled locally. The data editor and local catalog overrides are excluded.
@@ -44,7 +48,7 @@ python -m unittest discover -s tests -p test_build.py
 
 ## 배포 구조
 
-`data/game-data.json`이 유일한 배포 데이터 원본입니다. `site.zip`에는 검증된 r17-1 실행 파일과 자체 포함 라이브러리만 들어 있으며, 데이터 파일과 편집기는 없습니다. `site.sha256`은 실행 파일 ZIP의 무결성을 확인합니다. 실행 코드를 변경할 때만 ZIP과 해시를 함께 갱신합니다.
+`data/game-data.json`이 유일한 배포 데이터 원본입니다. `site.zip`에는 검증된 r17-3 실행 파일과 자체 포함 라이브러리만 들어 있으며, 데이터 파일과 편집기는 없습니다. `site.sha256`은 실행 파일 ZIP의 무결성을 확인합니다. 실행 코드를 변경할 때만 ZIP과 해시를 함께 갱신합니다.
 
 GitHub Pages의 Source는 **GitHub Actions**로 유지합니다. 워크플로는 `scripts/build_site.py`로 `_site`를 만들고 테스트를 통과한 `_site`만 게시합니다. 빌드 스크립트·테스트·원본 ZIP은 사이트에 포함되지 않습니다.
 
